@@ -15,7 +15,7 @@ def main():
     save_cards_to_database(cards)
 
 def download_card_json():
-    req = Request('https://api.hearthstonejson.com/v1/14830/enUS/cards.json', headers={'User-Agent' : "Magic Browser"}) 
+    req = Request('https://api.hearthstonejson.com/v1/20022/enUS/cards.json', headers={'User-Agent' : "Magic Browser"}) 
     response = urlopen(req)
     responseStr = response.read().decode('utf-8')
     return responseStr
