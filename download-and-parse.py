@@ -158,7 +158,7 @@ def save_cards_to_nested_csvs(cards):
                                     entourage_writer.writerow([card["id"], i])
 
 def save_cards_to_database(cards):
-    with sqlite3.connect('output/database.sqlite') as sql:
+    with sqlite3.connect('output/database.sqlite', isolation_level=None) as sql:
         sql.execute("""PRAGMA writable_schema = 1;""")
         sql.execute("""DELETE FROM sqlite_master WHERE type IN ('table', 'index', 'trigger')""")
         sql.execute("""PRAGMA writable_schema = 0;""")
