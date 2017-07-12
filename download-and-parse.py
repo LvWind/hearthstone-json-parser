@@ -170,7 +170,7 @@ def save_cards_to_database(cards):
             player_class TEXT,
             type TEXT,
             name TEXT,
-            [set] TEXT,
+            _set TEXT,
             text TEXT,
             cost INTEGER,
             attack INTEGER,
