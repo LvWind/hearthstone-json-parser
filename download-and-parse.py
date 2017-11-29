@@ -2,10 +2,11 @@ from urllib.request import urlopen, Request
 import json
 import csv
 import sqlite3
+import os
 
 def main():
     cards_data = download_card_json()
-    
+    create_output_dir()
     save_json_to_file(cards_data)
     
     cards = json.loads(cards_data)
@@ -14,8 +15,12 @@ def main():
     save_cards_to_nested_csvs(cards)
     save_cards_to_database(cards)
 
+def create_output_dir():
+    if not os.path.exists('output'):
+        os.makedirs('output')    
+
 def download_card_json():
-    req = Request('https://api.hearthstonejson.com/v1/20022/enUS/cards.json', headers={'User-Agent' : "Magic Browser"}) 
+    req = Request('https://api.hearthstonejson.com/v1/22115/enUS/cards.json', headers={'User-Agent' : "Magic Browser"}) 
     response = urlopen(req)
     responseStr = response.read().decode('utf-8')
     return responseStr
