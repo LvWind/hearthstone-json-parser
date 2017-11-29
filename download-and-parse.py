@@ -20,7 +20,7 @@ def create_output_dir():
         os.makedirs('output')    
 
 def download_card_json():
-    req = Request('https://api.hearthstonejson.com/v1/22115/enUS/cards.json', headers={'User-Agent' : "Magic Browser"}) 
+    req = Request('https://api.hearthstonejson.com/v1/latest/enUS/cards.json', headers={'User-Agent' : "Magic Browser"}) 
     response = urlopen(req)
     responseStr = response.read().decode('utf-8')
     return responseStr
